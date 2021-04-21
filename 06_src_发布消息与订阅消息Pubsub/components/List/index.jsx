@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import PubSub from 'pubsub-js'
+import PubSub from "pubsub-js";
 import "./index.css";
 export default class List extends Component {
   // 初始化状态
@@ -9,14 +9,15 @@ export default class List extends Component {
     isLoad: false,
     err: "", //存储请求相关的错误信息
   };
-  componentDidMount(){
-      this.token=PubSub.subscribe('atguigu',(_,stateObj)=>{
-        this.setState(stateObj);
-      })
+  // 06_src_发布消息与订阅消息Pubsub
+  componentDidMount() {
+    this.token = PubSub.subscribe("atguigu", (_, stateObj) => {
+      this.setState(stateObj);
+    });
   }
   // 组件将要被卸载时执行
-  componentWillUnmount(){
-    PubSub.unsubscribe(this.token)
+  componentWillUnmount() {
+    PubSub.unsubscribe(this.token);
   }
   render() {
     const { users, isLoad, isFirst, err } = this.state;

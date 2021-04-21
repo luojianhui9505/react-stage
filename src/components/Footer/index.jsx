@@ -3,6 +3,7 @@ import './index.css'
 
 export default class Footer extends Component {
   handleCheckedAll=(event)=>{
+    console.log(event.target.checked)
       this.props.checkedAll(event.target.checked)
   }
   handleClearAll=()=>{
